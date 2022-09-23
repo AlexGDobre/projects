@@ -70,8 +70,8 @@ polyline{
 }
 
 @keyframes main{
-  0%{left: -285px;height:63px;}
-  25%{left: -285px;height:63px;}
+  0%{left: -286px;height:63px;}
+  25%{left: -286px;height:63px;}
   50%{left:-2px;outline: 2px solid rgba(168, 212, 244, 0);}
   56%{outline: 2px solid rgba(168, 212, 244, 0.7);}
   65%{}
