@@ -1,0 +1,252 @@
+/* @import url(https://fonts.googleapis.com/css?family=Roboto:100); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Wire+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Wire+One&display=swap');
+
+body{
+/*   font-family: 'Roboto', sans-serif; */
+/*   font-family: 'Open Sans', sans-serif; */
+/*   font-family: 'Wire One', sans-serif; */
+  font-family: 'Amatic SC', sans-serif;
+}
+
+.name{
+  font-family: inherit;
+  font-size:25px;
+  font-weight:700;
+  letter-spacing:1.5px;
+  text-shadow: 8px 7px 3px rgba(0,0,0,0.6),1px 0 1px rgba(255,255,255,0.8);
+}
+.message{
+  font-family: inherit;
+  font-size:21px;
+  font-weight:100;
+  letter-spacing:1px;
+  line-height:26px;
+  text-shadow:0 0 1px rgba(0,0,0,0.6);
+}
+:root{
+/*   размеры customicon */
+  --medium: 70%;
+  --small: 26px;
+}
+@mixin customicon{}
+.customicon{
+/* 	background:url(https://i0.wp.com/northgard.net/wp-content/uploads/2021/06/staag.png?resize=370%2C385&ssl=1); */
+  background:no-repeat url(https://c.tenor.com/ZuBSoAyu5e0AAAAC/northgard-symbol.gif);
+/*   background:no-repeat url(https://c.tenor.com/v1sRTKxULzgAAAAC/northgard-symbol.gif); */
+  border-radius:50%;  /*офнуть если изображение не круглое */ 
+  width:var(--small);
+  height:var(--small);
+  background-size: 100%, 100%;
+}
+
+.relat{
+  position:relative;
+  margin-top:20px;
+  margin-bottom:4px;
+}
+.cut, polygon{
+  position:absolute;
+/*   overflow:visible; */
+  z-index: 2;
+  bottom: 1px;
+  right: 1px;
+}
+.draw-line{
+  position:absolute;
+  z-index: 3;
+  top:11.50px;
+  left:19px;
+  stroke-dashoffset:200;stroke-dasharray:200;
+/*   opacity:0; */
+}
+polyline{
+  animation: drawline 1s;
+}
+@keyframes drawline{
+  0%{stroke-dashoffset:200;stroke-dasharray:200;}
+  80%{opacity:1;}
+  100%{stroke-dashoffset:0;stroke-dasharray:200;opacity:0;}
+}
+
+@keyframes main{
+  0%{left: -285px;height:63px;}
+  25%{left: -285px;height:63px;}
+  50%{left:-2px;outline: 2px solid rgba(168, 212, 244, 0);}
+  56%{outline: 2px solid rgba(168, 212, 244, 0.7);}
+  65%{}
+  75%{height:63px;}
+  83%{height:auto;outline: 2px solid rgba(168, 212, 244, 0);}
+  100%{height:auto}
+}
+
+.megamain{
+/*   opacity:0; */
+  position: relative;
+  display:grid;
+  grid-template-columns: 39px auto;
+  left:-2px;
+/*   margin:0 auto; */
+/*  margin-top: 20px; */
+  height:auto;
+/* 	max-height:120px; */
+  width:285px;
+  animation: main 4s;
+/*   animation-iteration-count: infinite; */
+  overflow:hidden;
+}
+.main{
+  position:relative;
+  background: rgba(22, 44, 58, 0.9);
+  border: 1px solid rgba(28, 45, 49, 0.6);
+  overflow:hidden;
+  padding: 20px 14px 0 17px;
+  color: #fff;
+  line-height:20px;
+}
+@keyframes text{
+  0%{opacity: 0;}
+  50%{opacity: 0;}
+  100%{opacity: 1;}
+}
+.name, .message{
+  display:block;
+/*   padding-bottom: 0.1em; */
+}
+.name{
+/*   opacity: 0; */
+/*   text-shadow:0 0 2px rgba(255,255,255,0.6), 1px 0 3px rgba(0,0,0,0.6); */
+  padding-left:17px;
+  animation: text 4s;
+  text-overflow: ellipsis;
+/*   overflow:hidden; */
+  text-wrap:nowrap;
+}
+.message{
+  word-wrap:break-word;
+  padding:21px 0px 8px 0;
+/*   font-stretch:190%; */
+  opacity:0.9;
+/*   transform: scaley(0.7); */
+}
+
+.blue{
+  position:relative;
+  width:39px;
+  height:100%;
+  background-color: #165b85;
+  border: 1px solid #1C2D31;
+  border-right:none;
+  outline: 2px solid #4f79a9;
+  outline-offset: -3px;
+}
+@keyframes badge{
+  0%{opacity:0;}
+  30.33%{opacity:0; background:radial-gradient(at bottom,#526575 10%,#1e2632 90%); outline-color:white;}
+  35%{outline-color:white;}
+  70%{opacity:1;outline-color:#858e99;box-shadow:0 0 0 4px black;}
+  100%{}
+}
+.ramka{
+  opacity:1;
+  position:absolute;
+  z-index: 3;
+  top:11.50px;
+  left:19px;
+  background:radial-gradient(at bottom,#526575 10%,#1e2632 90%);
+  width: 40px;
+  height: 38px;
+	overflow:hidden;
+  box-shadow: 0 0 0 4px black;
+  outline: 2px solid #858e99;
+  /* outline-color: linear-gradient(45deg, , #667682); */
+  outline-offset: 1px;
+  animation: badge 3s;
+  /* animation-iteration-count:infinite; */
+}
+@keyframes badgeborder{
+  0%{opacity:0;}
+  30%{opacity:0;}
+  30.33%{transform:scale(1);opacity:1;border-width:1px;}
+  100%{transform:scale(1.7);opacity:0;}
+}
+.badgeborder{
+  opacity:1;
+  position:absolute;
+  z-index: 3;
+  top:10px;
+  left:17px;
+  background: transparent;
+  width: 42px;
+  height: 40px;
+  border: 1px solid white;
+  animation: badgeborder 3s;
+}
+
+#log>div {
+    animation: fadeOut 0.5s ease {message_hide_delay} forwards;
+    -webkit-animation:fadeOut 0.5s ease {message_hide_delay} forwards;
+}
+
+.colon {
+    display: none;
+}
+
+#log {
+    display: table;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    table-layout: fixed;
+}
+
+#log>div.deleted {
+    visibility: hidden;
+}
+
+#log .emote {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    padding: 0.4em 0.2em;
+    position: relative;
+  	bottom:-1px;
+}
+
+#log .emote img {
+    display: inline-block;
+    height: 1em;
+    opacity: 0;
+}
+@keyframes icon{
+  0%{opacity:0;}
+  50%{opacity:0;}
+  100%{opacity:1;}
+}
+.badge {
+  display: inline-block;
+  margin: 0 auto;
+  width: 50%;
+  padding: 24% 25%;
+  animation: icon 2.5s;
+  z-index:7;
+  filter:drop-shadow(3px 3px 3px rgba(0,0,0,0.6))grayscale(30%);
+}
+@keyframes custicon{
+  0%{opacity:0;}
+  65%{opacity:0;}
+  100%{opacity:1;}
+}
+.customicon{
+  z-index:6;
+  opacity:1;
+  position:absolute;
+  margin: 18% 18%;
+  filter:drop-shadow(3px 3px 3px rgba(0,0,0,0.5)) hue-rotate(3.142rad);
+/*   filter:drop-shadow(0 5px 6px green) drop-shadow(0 -5px 6px blue)drop-shadow(-2px 0 6px yellow)drop-shadow(2px 0 6px red); */
+	background-position:center;
+  animation:custicon 3s;
+}
